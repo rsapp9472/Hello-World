@@ -5,7 +5,7 @@
   "description": "Path B immediate silent tripwire. Do not merge with x-crc-bridge or x-crc-bridge-mining.",
   "type": "module",
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test test/worker.test.mjs",
     "dry-run": "node scripts/dry-run.mjs",
     "dev": "wrangler dev",
     "tail": "wrangler tail"
