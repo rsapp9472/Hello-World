@@ -1,0 +1,16 @@
+{
+  "name": "x-crc-flash-trip",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Path B immediate silent tripwire. Do not merge with x-crc-bridge or x-crc-bridge-mining.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/",
+    "dry-run": "node scripts/dry-run.mjs",
+    "dev": "wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}

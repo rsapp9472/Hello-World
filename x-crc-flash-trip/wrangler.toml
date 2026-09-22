@@ -1,0 +1,29 @@
+name = "x-crc-flash-trip"
+main = "src/worker.js"
+compatibility_date = "2024-09-23"
+account_id = "00b61c4e0209341831de0e235984fabf"
+workers_dev = true
+
+# PATH B ONLY. Do not merge into x-crc-bridge or x-crc-bridge-mining.
+# Do not add these fetches to the Path A Workers. Do not change their crons.
+#
+# Cloudflare cron is UTC. "*/5 * * * *" is every 5 minutes, 24/7,
+# which is 24/7 America/New_York. The ET calendar is applied in code
+# for the daily post cap and fetched_at. This is the third account cron
+# (Path A already uses two). Do not add another cron on this Worker.
+#
+# Secrets Boss/CoS must paste before any production deploy. Do not guess.
+#   CURSOR_WEBHOOK_URL
+#   CURSOR_AUTH_HEADER
+# Do NOT set FLASH_TRIAGE_WEBHOOK_URL or FLASH_TRIAGE_AUTH_HEADER here.
+# Those are Path A RSS → Flash Triage only.
+#
+# KV (create once, then replace the id below):
+#   npx wrangler kv namespace create TRIP_KV
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[[kv_namespaces]]
+binding = "TRIP_KV"
+id = "PASTE_TRIP_KV_NAMESPACE_ID"
